@@ -46,13 +46,13 @@ class List:
     @Curry
     @staticmethod
     def Map(function, elements):
-        return [ function (element) for element in elements ]
+        return [ function& element for element in elements ]
 
     @Curry
     @staticmethod
     def Foldl(function, accumulator, elements):
         for element in elements:
-            accumulator = function (accumulator) (element)
+            accumulator = function& accumulator& element
 
         return accumulator
 
@@ -60,30 +60,34 @@ class List:
     @staticmethod
     def Foldr(function, accumulator, elements):
         for element in elements:
-            accumulator = function (element) (accumulator)
+            accumulator = function& element& accumulator
 
         return accumulator
 
     @Curry
     @staticmethod
     def Filter(predicate, elements):
-        return [ element for element in elements if predicate (element) ]
+        return [ element for element in elements if predicate& element ]
 
     @Curry
     @staticmethod
     def Sum(elements): # Sum Monoid
-        return elements | List.Foldl (Operator.Add) (0)
+        return elements \
+             | List.Foldl& Operator.Add& 0
 
     @Curry
     @staticmethod
     def Product(elements): # Product Monoid
-        return elements | List.Foldl (Operator.Mul) (1)
+        return elements \
+             | List.Foldl& Operator.Mul& 1
 
     @Curry
     @staticmethod
     def Any(elements): # Disjunction Monoid
-          return elements | List.Foldl (Operator.Or) (False)
+        return elements \
+             | List.Foldl& Operator.Or& False
     @Curry
     @staticmethod
     def All(elements): # Conjunction Monoid
-        return elements | List.Foldl (Operator.And) (True)
+        return elements \
+             | List.Foldl& Operator.And& True
