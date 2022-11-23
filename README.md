@@ -31,7 +31,7 @@ Any functions that is decorated with the `Curry` class, also accepts arguments v
 >>> 5 | add (5)
 10
 ```
-is valid, so you can chain functions.
+is valid, so you can chain functions. (This is just a flipped function application `&`)
 
 # Right-to-left applications:
 If, what you need, is to 'chain arguments', you should use `**` (exponent operator), as it is right-associative, ex:
@@ -49,7 +49,7 @@ Tired of parenthesis? Use `&` (bitwise-and operator), the function application, 
 ```
 
 # Full examples:
-```
+```py
 # Squaring a list
 
 from Curry    import Curry
