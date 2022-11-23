@@ -13,14 +13,17 @@ and now, the function `add` is curried, simple as that. Usage:
 ```py
 >>> add (5)
 '<Curried add [5]>'
-
+```
+```py
 >>> add (5) (5)
 10
-
+```
+```py
 >>> increment = add (1)
 >>> increment
 '<Curried add [1]>'
-
+```
+```py
 >>> increment (1)
 2
 ```
@@ -52,12 +55,34 @@ Tired of parenthesis? Use `&` (bitwise-and operator), the function application.
 ```py
 # Squaring a list
 
-from Curry    import Curry
-from Function import List
+from Curry import Curry
+
+import List
 
 square  = Curry (lambda n: n ** 2)
 numbers = [1, 2, 3, 4, 5]
 
 squared_numbers = numbers \
                 | List.Map& square
+```
+```py
+# Replacing all elements of a list with 0
+
+import List
+import Combinator
+
+numbers = [1, 2, 3, 4, 5]
+zeros   = numbers \
+        | List.Map& (Combinator.Const& 0)
+```
+```
+# Adding two lists together
+
+import List
+import Operator
+
+a = [1, 2, 3, 4, 5]
+b = [1, 2, 3, 4, 5]
+
+sum = a ** b ** List.ZipWith (Operator.Add)
 ```
