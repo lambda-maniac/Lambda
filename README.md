@@ -75,7 +75,7 @@ numbers = [1, 2, 3, 4, 5]
 zeros   = numbers \
         | List.Map& (Combinator.Const& 0)
 ```
-```
+```py
 # Adding two lists together
 
 import List
