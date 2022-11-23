@@ -11,6 +11,10 @@ def Const(a, b):
     return a
 
 @Curry
+def Flip(function, a, b):
+    return function& b& a
+
+@Curry
 def Uncurry(function, a_and_b):
     """:: (a -> b -> c) -> (a, b) -> c"""
     a, b = a_and_b
