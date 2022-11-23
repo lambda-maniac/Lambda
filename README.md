@@ -34,12 +34,19 @@ Any functions that is decorated with the `Curry` class, also accepts arguments v
 >>> 5 | add (5)
 10
 ```
-is valid, so you can chain functions. (This is just a flipped function application `&`)
+is valid, so you can chain functions. (This is just a flipped "function application" function `&`)
 
 # Cleaner applications:
-Tired of parenthesis? Use `&` (bitwise-and operator), the function application.
+Tired of parenthesis? Use `&` (bitwise-and operator), the "function application" function.
 ```py
 >>> add& 5& 5
+10
+```
+
+# Infix functions.
+If haven't noticed yet, placing a function in between the two "function application" functions, a.k.a. `|` and `&` (Pipe/Or is just a flipped And), will have the same effect as having that same function, but infix.
+```py
+>>> 5 |add& 5
 10
 ```
 
