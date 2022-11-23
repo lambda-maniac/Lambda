@@ -88,5 +88,5 @@ import Operator
 a = [1, 2, 3, 4, 5]
 b = [1, 2, 3, 4, 5]
 
-sum = a ** b ** List.ZipWith (Operator.Add)
+sum = List.ZipWith& Operator.Add& a& b
 ```
