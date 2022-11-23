@@ -25,6 +25,9 @@ class Curry:
     def __rpow__ (self, argument): return self(argument) # right associative
     def  __and__ (self, argument): return self(argument) # clean application
 
+    def __repr__(self):
+        return f'<Curried {self.function.__name__} {self.arguments}>'
+
 """ ========
 ::: Aliases.
 ======== """
