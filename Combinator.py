@@ -25,3 +25,8 @@ def Substitute(binary, unary, a):
 def Inbetween(a, b, function):
     """:: a -> b -> (a -> b -> c) -> c"""
     return function& a& b
+
+@Curry
+def Compose(f, g, a):
+    """:: (a -> b) -> (b -> c) -> a -> c"""
+    return f& (g& a)
