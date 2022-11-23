@@ -1,7 +1,3 @@
-""" ==========
-::: Main code.
-========== """
-
 from inspect import signature
 
 class Curry:
@@ -21,16 +17,16 @@ class Curry:
 
         return Curry(self.function, n_arguments, n_length)
 
-    def  __ror__ (self, argument): return self(argument) # left  associative
-    def __rpow__ (self, argument): return self(argument) # right associative
-    def  __and__ (self, argument): return self(argument) # clean application
+    def __ror__ (self, argument): return self(argument) # left  associative
+    def __and__ (self, argument): return self(argument) # clean application
+    def __pow__ (self, curried):
+
+        @Curry
+        def composition(f, g, a):
+            return f& (g& a)
+
+        return composition& self& curried
+
 
     def __repr__(self):
         return f'<Curried {self.function.__name__} {self.arguments}>'
-
-""" ========
-::: Aliases.
-======== """
-
-curry   = Curry
-uncurry = lambda curried: curried.function
