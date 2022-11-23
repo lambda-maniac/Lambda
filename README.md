@@ -36,19 +36,23 @@ Any functions that is decorated with the `Curry` class, also accepts arguments v
 ```
 is valid, so you can chain functions. (This is just a flipped function application `&`)
 
-# Right-to-left applications:
-If, what you need, is to 'chain arguments', you should use `**` (exponent operator), as it is right-associative, ex:
-```py
->>> 5 ** 5 ** add # Same as: 5 | (5 | add)
-10
-```
-this is valid, because the expression is read right-to-left. This couldn't be done with `|` (or operator), as it is left-associative.
-
 # Cleaner applications:
 Tired of parenthesis? Use `&` (bitwise-and operator), the function application.
 ```py
 >>> add& 5& 5
 10
+```
+
+# Function composition:
+To compose functions, use `**` (exponent operator), but, be aware that it is right-associative, so composition happens right-to-left:
+```py
+>>> from Operator import Add, Mul
+>>> add5 = Add& 5
+>>> mul5 = Mul& 5
+>>> add5 ** mul5 & 5
+30
+>>> mul5 ** add5 & 5
+50
 ```
 
 # Full examples:
