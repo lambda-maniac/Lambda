@@ -42,10 +42,10 @@ If, what you need, is to 'chain arguments', you should use `**` (exponent operat
 this is valid, because the expression is read right-to-left. This couldn't be done with `|` (or operator), as it is left-associative.
 
 # Cleaner applications:
-Tired of parenthesis? Use `&` (bitwise-and operator), the function application, but be careful, it is only suitable on the last argument of a function, otherwise, you'll need parenthesis anyway, ex:
+Tired of parenthesis? Use `&` (bitwise-and operator), the function application.
 ```py
->>> increment& 1
-2
+>>> add& 5& 5
+10
 ```
 
 # Full examples:
