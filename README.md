@@ -44,7 +44,7 @@ Tired of parenthesis? Use `&` (bitwise-and operator), the "function application"
 ```
 
 # Infix functions.
-If haven't noticed yet, placing a function in between the two "function application" functions, a.k.a. `|` and `&` (Pipe/Or is just a flipped And), will have the same effect as having that same function, but infix.
+If you haven't noticed yet, placing a function in between the two "function application" functions, a.k.a. `|` and `&` (where Pipe/Or is just a flipped And), will have the same effect as having that same function, but infix.
 ```py
 >>> 5 |add& 5
 10
