@@ -57,7 +57,7 @@ To compose functions, use `**` (exponent operator), but, be aware that it is rig
 
 # Full examples:
 ```py
-# Squaring a list
+# Finding the sum of squares
 
 from Curry import Curry
 
@@ -65,9 +65,9 @@ import List
 
 square  = Curry (lambda n: n ** 2)
 numbers = [1, 2, 3, 4, 5]
-
-squared_numbers = numbers \
-                | List.Map& square
+result  = numbers          \
+        | List.Map& square \
+        | List.Sum
 ```
 ```py
 # Replacing all elements of a list with 0
