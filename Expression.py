@@ -1,8 +1,7 @@
 from Curry import Curry
+from Tuple import pair
 
-@Curry
-def defer(value, b_return):
-    return (value, b_return)
+defer = pair
 
 @Curry
 def switch(value, branches):
