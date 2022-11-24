@@ -1,5 +1,5 @@
-from .. Curry import Curry
-from .. Tuple import pair
+from .. Currying import Curry
+from .. Tuple    import pair
 
 defer = pair
 
