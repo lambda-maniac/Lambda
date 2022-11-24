@@ -30,6 +30,11 @@ class Curry:
     def __matmul__(self, function):
         return function.__pow__(self)
 
+    def __or__(self, function):
+        if isinstance(function, Curry):
+            return function(self)
+
+        raise Exception(f"{function.__class__} is not pipeable.")
 
     def __repr__(self):
         return f'<Curried {self.function.__name__} {self.arguments}>'
