@@ -22,14 +22,14 @@ def uncurry(function, a_and_b):
     return function& a& b
 
 @Curry
-def duplicate(function, a):
-    """:: (a -> a -> b) -> a -> b"""
-    return function& a& a
-
-@Curry
 def amalgamation(binary, unary, a):
     """:: (a -> b -> c) -> (a -> b) -> a -> c"""
     return binary& a& (unary& a)
+
+@Curry
+def duplicate(a, function):
+    """:: a -> (a -> a -> b) -> b"""
+    return function& a& a
 
 @Curry
 def inbetween(a, b, function):
