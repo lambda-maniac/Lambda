@@ -75,7 +75,7 @@ def group(elements):
     n_elements = []
     grouping   = []
 
-    for (x, y) in amalgamation (zip) (tail) & elements:
+    for (x, y) in amalgamation (zip) (tail) (elements + [None]):
 
         grouping.append(x)
 
