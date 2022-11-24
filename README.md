@@ -26,19 +26,35 @@ Simple as that, now the function `Add` supports currying, here's some examples (
 >>> inc (5)
 6
 ```
-# "Function application" functions:
+# The "function application" functions:
 Any function that is curried, also accepts two special syntaxes that allows you to pipe arguments in, from the left, or from the right:
 > Left application:
 > ```py
 > 5 | Add
 > ```
-
 > Right application:
 > ```py
 > Add & 5
 > ```
-
 Both of the examples above are equal to:
 ```py
 Add (5)
 ```
+# The "function composition" functions:
+Any function `f` and `g` that are curried, and the return type of `g` is the input type of `f`, then `f` and `g` are composeable. Take a look at the "function composition" function:
+```py
+@Curry # Defined in Lambda.Prelude.Combinator @ compose
+def compose(f, g, a):
+    """:: (a -> b) -> (b -> c) -> a -> c"""
+    return f& (g& a)
+```
+Function composition also has two special syntaxes:
+> Right-associative:
+> ```py
+> f ** g # Apply f after applying g
+> ```
+> Left-associative:
+> ```
+> f @ g # Apply f then apply g
+> ```
+Where `@` is just a flipped version of `**`.
