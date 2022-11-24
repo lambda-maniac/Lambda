@@ -50,16 +50,24 @@ If you haven't noticed yet, placing a function in between the two "function appl
 10
 ```
 
-# Function composition:
-To compose functions, use `**` (exponent operator), but, be aware that it is right-associative, so composition happens right-to-left:
+# Right-to-left function composition:
+To compose functions, right-to-left, use `**` (exponent operator):
 ```py
 >>> from Operator import Add, Mul
->>> add5 = Add& 5
->>> mul5 = Mul& 5
->>> add5 ** mul5 & 5
+>>> Add (5) ** Mul (5) & 5 # 'Add 5 after Mul 5'
 30
->>> mul5 ** add5 & 5
+>>> Mul (5) ** Add (5) & 5 # 'Mul 5 after Add 5'
 50
+```
+
+# Left-to-right function composition:
+To compose functions, left-to-right, use `@` (matmul operator):
+```py
+>>> from Operator import Add, Mul
+>>> Add (5) @ Mul (5) & 5 # 'Add 5 then Mul 5'
+50
+>>> Mul (5) @ Add (5) & 5 # 'Mul 5 then Add 5'
+30
 ```
 
 # Full examples:
