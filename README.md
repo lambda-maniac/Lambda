@@ -26,6 +26,7 @@ Simple as that, now the function `Add` supports currying, here's some examples (
 >>> inc (5)
 6
 ```
+
 # The "function application" functions:
 Any function that is curried, also accepts two special syntaxes that allows you to pipe arguments in, from the left, or from the right:
 > Left application:
@@ -40,6 +41,7 @@ Both of the examples above are equal to:
 ```py
 Add (5)
 ```
+
 # The "function composition" functions:
 Any function `f` and `g` that are curried, and the return type of `g` is the input type of `f`, then `f` and `g` are composeable. Take a look at the "function composition" function:
 ```py
@@ -58,3 +60,17 @@ Function composition also has two special syntaxes:
 > f @ g # Apply f then apply g
 > ```
 Where `@` is just a flipped version of `**`.
+
+# Infix functions:
+Any functions that is curried, can also be infix, if placed between `|` and `&`, Ex:
+```py
+>>> 5 | Add & 5
+10
+```
+```py
+>>> sections = tail | amalgamation & zip # All defined in Prelude.
+>>> sections
+'<Curried amalgamation [<Curried zip []>, <Curried tail []>]>'
+>>> sections& [1, 2, 3]
+[(1, 2), (2, 3)]
+```
