@@ -19,13 +19,16 @@ class Curry:
 
     def __ror__ (self, argument): return self(argument) # left  associative
     def __and__ (self, argument): return self(argument) # clean application
-    def __pow__ (self, curried):
+    def __pow__ (self, function):
 
         @Curry
         def composition(f, g, a):
             return f& (g& a)
 
-        return composition& self& curried
+        return composition& self& function
+
+    def __matmul__(self, function):
+        return function.__pow__(self)
 
 
     def __repr__(self):
