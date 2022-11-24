@@ -1,4 +1,4 @@
-from . Curry import Curry
+from . Currying import Curry
 
 @Curry
 def id(a):
