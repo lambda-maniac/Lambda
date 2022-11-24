@@ -1,4 +1,4 @@
-from . Curry      import Curry
+from . Currying   import Curry
 from . Combinator import uncurry, amalgamation
 from . Operator   import Add, Mul, Or, And
 
