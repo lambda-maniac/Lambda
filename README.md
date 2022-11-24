@@ -62,13 +62,15 @@ Function composition also has two special syntaxes:
 Where `@` is just a flipped version of `**`.
 
 # Infix functions:
-Any functions that is curried, can also be infix, if placed between `|` and `&`, Ex:
+Any functions that is curried, can also be infix, if placed between `|` and `&`, Ex (from repl):
 ```py
 >>> 5 | Add & 5
 10
 ```
 ```py
->>> sections = tail | amalgamation & zip # All defined in Prelude.
+>>> from Lambda.Prelude.Combinator import amalgamation
+>>> from Lambda.Prelude.List       import zip, tail
+>>> sections = tail | amalgamation & zip
 >>> sections
 '<Curried amalgamation [<Curried zip []>, <Curried tail []>]>'
 >>> sections& [1, 2, 3]
