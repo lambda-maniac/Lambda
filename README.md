@@ -56,7 +56,7 @@ Function composition also has two special syntaxes:
 > f ** g # Apply f after applying g
 > ```
 > Left-associative:
-> ```
+> ```py
 > f @ g # Apply f then apply g
 > ```
 Where `@` is just a flipped version of `**`.
